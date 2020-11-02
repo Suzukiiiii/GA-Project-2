@@ -5,6 +5,7 @@ const pokemonSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
+    level: {type: Number, default: 1}
 });
 
 module.exports = mongoose.model('Pokemon',pokemonSchema);

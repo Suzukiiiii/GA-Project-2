@@ -41,6 +41,9 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 // Routes
 //___________________
+
+app.use('/trainers', require('./controllers/trainer'));
+
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello Josh!');

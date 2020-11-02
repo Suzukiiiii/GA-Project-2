@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const Trainer = require('./models/trainer');
 const Pokemon = require('./models/pokemon');
-const mongoURI = 'mongodb://localhost/mongoRelationships';
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'Project2';
+//const mongoURI = 'mongodb://localhost/mongoRelationships';
+
 mongoose.connect(
   mongoURI,
   { useNewUrlParser: true, useUnifiedTopology: true },
@@ -38,6 +40,8 @@ async function seed() {
     name: 'Quiche',
     pokemon: [],
   });
+
+
   // // PUSH THE INGREDIENTS ONTO THE FOOD'S
   // // INGREDIENTS ARRAY
   trainer.pokemon.push(pokemon1);
@@ -53,7 +57,9 @@ async function seed() {
       console.log('trainer is  ', savedTrainer);
     }
   });
+
 }
 
 
 seed();
+
