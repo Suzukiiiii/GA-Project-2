@@ -6,7 +6,6 @@ const Pokemon = require('../models/pokemon');
 router.get('/', async(req,res)=>{
     let allTrainers = await Trainer.find();
     res.render('trainers/index.ejs',{trainers: allTrainers})
-    //res.send(allTrainers);
 });
 
 // NEW
@@ -17,17 +16,12 @@ router.get('/new', async (req, res) => {
 
 // SHOW
 router.get('/:id', async (req, res) => {
-  let allIngredients = await Ingredient.find({});
 
-  let foundFood = await Food.findById(req.params.id).populate({
-    path: 'ingredients',
-    options: { sort: { name: 1 } },
-  });
-
-  res.render('foods/show.ejs', {
-    food: foundFood,
-    ingredients: allIngredients,
-  });
+  let foundTrainer = await Trainer.findById(req.params.id);
+  res.send(foundTrainer);
+//   res.render('foods/show.ejs', {
+//     trainer: foundTrainer,
+//   });
 });
 
 // CREATE

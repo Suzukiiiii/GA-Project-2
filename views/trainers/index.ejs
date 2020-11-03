@@ -9,7 +9,7 @@
     <h1>All Trainers</h1>
     <% trainers.forEach(trainer =>{ %> 
         <li>
-            <a href=""><%= trainer.name %></a>
+            <a href="/trainers/<%= trainer.id %>"><%= trainer.name %></a>
         </li>
     <% }) %>
 </body>
