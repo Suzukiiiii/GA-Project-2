@@ -17,11 +17,15 @@ router.get('/new', async (req, res) => {
 // SHOW
 router.get('/:id', async (req, res) => {
 
-  let foundTrainer = await Trainer.findById(req.params.id);
-  res.send(foundTrainer);
-//   res.render('foods/show.ejs', {
-//     trainer: foundTrainer,
-//   });
+  let foundTrainer = await Trainer.findById(req.params.id).populate({
+    path: 'pokemon',
+    options: { sort: { ['name']: 1 } },
+  });;
+
+  //res.send(foundTrainer);
+  res.render('trainers/show.ejs', {
+    trainer: foundTrainer,
+  });
 });
 
 // CREATE

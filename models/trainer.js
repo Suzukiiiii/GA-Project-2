@@ -6,6 +6,12 @@ const trainerSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
+    
+    // pokemon: [{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref:'Pokemon',
+    // }]
+    
     pokemon: {
         type: [{
             type: mongoose.Schema.Types.ObjectId,

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=trainer.name%></title>
+</head>
+<body>
+    <h1><%=trainer.name%></h1>
+    <ul>
+    <% trainer.pokemon.forEach(poke =>{ %>
+        
+        <li>
+            <a href=""><%=poke.species%></a>
+        </li>
+    <% }) %>
+    </ul>
+    
+</body>
+</html>

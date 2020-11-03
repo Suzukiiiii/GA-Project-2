@@ -12,7 +12,7 @@ mongoose.connect(
   }
 );
 async function seed() {
-  // CREATE TWO Pokemon
+  // CREATE Pokemon
   const pokemon1 = await Pokemon.create({
     species: 'blub',
   });
@@ -20,36 +20,35 @@ async function seed() {
     species: 'ivy',
   });
 
-  const pokemon3 = await Pokemon.create({
-    species: 'venu',
-  });
-  const pokemon4 = await Pokemon.create({
-    species: 'char',
-  });
+  console.log(pokemon1);
+  // const pokemon3 = await Pokemon.create({
+  //   species: 'venu',
+  // });
+  // const pokemon4 = await Pokemon.create({
+  //   species: 'char',
+  // });
 
-  const pokemon5 = await Pokemon.create({
-    species: 'melon',
-  });
-  const pokemon6 = await Pokemon.create({
-    species: 'zard',
-  });
+  // const pokemon5 = await Pokemon.create({
+  //   species: 'melon',
+  // });
+  // const pokemon6 = await Pokemon.create({
+  //   species: 'zard',
+  // });
 
- 
-  // CREATE A NEW FOOD
-  const trainer = new Trainer({
-    name: 'Quiche',
+   const trainer = new Trainer({
+    name: 'Suzuki',
     pokemon: [],
   });
 
-
-  // // PUSH THE INGREDIENTS ONTO THE FOOD'S
-  // // INGREDIENTS ARRAY
   trainer.pokemon.push(pokemon1);
-  trainer.pokemon.push(pokemon2); // associated!
-  trainer.pokemon.push(pokemon3);
-  trainer.pokemon.push(pokemon4); // associated!
-  trainer.pokemon.push(pokemon5);
-  trainer.pokemon.push(pokemon6); // associated!
+  trainer.pokemon.push(pokemon2);
+
+  console.log(trainer);
+  console.log(trainer.pokemon[0].species);
+  // trainer.pokemon.push(pokemon3);
+  // trainer.pokemon.push(pokemon4);
+  // trainer.pokemon.push(pokemon5);
+  // trainer.pokemon.push(pokemon6);
   trainer.save(function (err, savedTrainer) {
     if (err) {
       console.log(err);
