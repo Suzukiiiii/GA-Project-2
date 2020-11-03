@@ -5,8 +5,8 @@ const Pokemon = require('../models/pokemon');
 // INDEX
 router.get('/', async(req,res)=>{
     let allTrainers = await Trainer.find();
-    //res.render('trainers/index.ejs',{trainers: allTrainers})
-    res.send(allTrainers);
+    res.render('trainers/index.ejs',{trainers: allTrainers})
+    //res.send(allTrainers);
 });
 
 // NEW
