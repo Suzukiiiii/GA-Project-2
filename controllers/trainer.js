@@ -46,6 +46,38 @@ router.post('/', async (req, res) => {
   res.redirect(`/trainers/${newTrainer.id}`);
 });
 
+// helper function to return data from pokeAPI
+const getFromPokemonAPI = async(pokeURL)=>{
+    try {
+        return await axios.get(pokeURL)
+      } catch (error) {
+        console.error(error)
+      }
+};
+
+// CATCH POKEMON
+router.post('/:id/catch',async(req,res)=>{
+    console.log("create pokemon route");
+
+    let foundTrainer = await Trainer.findById(req.params.id).populate({
+        path: 'pokemon',
+        options: { sort: { ['name']: 1 } },
+      });
+
+    const pokeURL = 'https://pokeapi.co/api/v2/pokemon/';
+    const randNum = 7;
+    const poke = await getFromPokemonAPI(pokeURL+randNum);
+    
+    const newPoke = await Pokemon.create({
+        species: poke.data.name,
+        frontImage:poke.data.sprites.front_default,
+        backImage: poke.data.sprites.back_default,
+    });
+    
+    foundTrainer.pokemon.push(newPoke);
+    res.redirect('/trainers/'+req.params.id);
+});
+
 // UPDATE
 router.put('/:id', async (req, res) => {
     console.log("reached update route");
