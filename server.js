@@ -43,7 +43,7 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
 
 app.use('/trainers', require('./controllers/trainer'));
-
+app.use('/pokemon', require('./controllers/pokemon'));
 //localhost:3000
 app.get('/' , (req, res) => {
   res.send('Hello Josh!');
