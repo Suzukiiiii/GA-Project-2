@@ -16,11 +16,15 @@
     <% }) %>
     </ul>
     
-    <form action = "/trainers/<%=trainer.id; %>?_method=DELETE" method="POST">
+    <form action = "/trainers/<%=trainer.id %>?_method=DELETE" method="POST">
         <input type="submit" value="DELETE"/>
+    </form>
+    <form action = "/trainers/<%=trainer.id %>/catch?_method=PUT" method="POST">
+        <input type="submit" value="Catch Pokemon"/>
     </form>
     <form action = "/trainers/" method="GET">
         <input type="submit" value="Back to Trainers"/>
     </form>
+    
 </body>
 </html>

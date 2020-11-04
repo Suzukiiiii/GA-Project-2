@@ -65,7 +65,7 @@ router.put('/:id/catch',async(req,res)=>{
       });
 
     const pokeURL = 'https://pokeapi.co/api/v2/pokemon/';
-    const randNum = 7;
+    const randNum = 1+Math.floor(Math.random() * Math.floor(151)); // between 1 and 150
     const poke = await getFromPokemonAPI(pokeURL+randNum);
     
     const newPoke = await Pokemon.create({
