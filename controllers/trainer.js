@@ -10,8 +10,7 @@ router.get('/', async(req,res)=>{
 
 // NEW
 router.get('/new', async (req, res) => {
-  let allIngredients = await Ingredient.find({});
-  res.render('foods/new.ejs', { ingredients: allIngredients });
+  res.render('trainers/new.ejs');
 });
 
 // SHOW
@@ -31,8 +30,8 @@ router.get('/:id', async (req, res) => {
 // CREATE
 router.post('/', async (req, res) => {
   console.log(req.body);
-  let food = await Food.create(req.body);
-  res.redirect(`/foods/${food.id}`);
+  let newTrainer = await Trainer.create(req.body);
+  res.redirect(`/trainers/${newTrainer.id}`);
 });
 
 // UPDATE
