@@ -56,7 +56,7 @@ const getFromPokemonAPI = async(pokeURL)=>{
 };
 
 // CATCH POKEMON
-router.post('/:id/catch',async(req,res)=>{
+router.put('/:id/catch',async(req,res)=>{
     console.log("create pokemon route");
 
     let foundTrainer = await Trainer.findById(req.params.id).populate({
@@ -73,9 +73,19 @@ router.post('/:id/catch',async(req,res)=>{
         frontImage:poke.data.sprites.front_default,
         backImage: poke.data.sprites.back_default,
     });
-    
-    foundTrainer.pokemon.push(newPoke);
-    res.redirect('/trainers/'+req.params.id);
+
+    await Trainer.findByIdAndUpdate(req.params.id,
+    {
+        $push: {pokemon: newPoke}
+    },(err,updatedTrainer)=>{
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect('/trainers/'+req.params.id);
+        }
+    });
+
 });
 
 // UPDATE
