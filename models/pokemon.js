@@ -5,7 +5,15 @@ const pokemonSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
-    level: {type: Number, default: 1}
+    level: {type: Number, default: 1},
+    frontImage:{
+        type: String,
+        default: '',
+    },
+    backImage:{
+        type: String,
+        default: '',
+    },
 });
 
 module.exports = mongoose.model('Pokemon',pokemonSchema);

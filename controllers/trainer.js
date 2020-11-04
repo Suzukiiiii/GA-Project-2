@@ -1,3 +1,4 @@
+const axios = require('axios').default;
 const router = require('express').Router();
 const Trainer = require('../models/trainer');
 const Pokemon = require('../models/pokemon');
