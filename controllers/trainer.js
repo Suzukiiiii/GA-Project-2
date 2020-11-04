@@ -11,7 +11,7 @@ router.get('/', async(req,res)=>{
 
 // NEW
 router.get('/new', async (req, res) => {
-  res.render('trainers/new.ejs');
+  res.render('trainers/new.ejs'); 
 });
 
 // EDIT
@@ -26,7 +26,6 @@ router.get('/:id/edit', async (req, res) => {
     });
 });
 
-
 // SHOW
 router.get('/:id', async (req, res) => {
 
@@ -35,7 +34,6 @@ router.get('/:id', async (req, res) => {
     options: { sort: { ['name']: 1 } },
   });
 
-  //res.send(foundTrainer);
   res.render('trainers/show.ejs', {
     trainer: foundTrainer,
   });
@@ -76,20 +74,5 @@ router.delete('/:id',(req,res)=>{
     });
     
 });
-
-// UPDATE
-// router.put('/:foodId/ingredients', async (req, res) => {
-//   let foundFood = await Food.findByIdAndUpdate(
-//     req.params.foodId,
-//     {
-//       $push: {
-//         ingredients: req.body.ingredients,
-//       },
-//     },
-//     { new: true, upsert: true }
-//   );
-//   console.log(foundFood);
-//   res.redirect(`/foods/${foundFood.id}`);
-// });
 
 module.exports = router;
