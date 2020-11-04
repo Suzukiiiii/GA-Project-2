@@ -29,6 +29,21 @@ router.post('/', async (req, res) => {
   res.redirect(`/trainers/${newTrainer.id}`);
 });
 
+// DELETE
+router.delete('/:id',(req,res)=>{
+
+    Trainer.findByIdAndRemove(req.params.id,(err)=>{
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect('/trainers/');
+        }
+        
+    });
+    
+});
+
 // UPDATE
 router.put('/:foodId/ingredients', async (req, res) => {
   let foundFood = await Food.findByIdAndUpdate(
