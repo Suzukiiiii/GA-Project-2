@@ -59,10 +59,10 @@ const getFromPokemonAPI = async(pokeURL)=>{
 router.put('/:id/catch',async(req,res)=>{
     console.log("create pokemon route");
 
-    let foundTrainer = await Trainer.findById(req.params.id).populate({
-        path: 'pokemon',
-        options: { sort: { ['name']: 1 } },
-      });
+    // let foundTrainer = await Trainer.findById(req.params.id).populate({
+    //     path: 'pokemon',
+    //     options: { sort: { ['name']: 1 } },
+    //   });
 
     const pokeURL = 'https://pokeapi.co/api/v2/pokemon/';
     const randNum = 1+Math.floor(Math.random() * Math.floor(151)); // between 1 and 150
