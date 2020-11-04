@@ -51,7 +51,15 @@ router.post('/', async (req, res) => {
 // UPDATE
 router.put('/:id', async (req, res) => {
     console.log("reached update route");
-    res.redirect('/trainers/');
+    console.log(req.body);
+    Trainer.findByIdAndUpdate(req.params.id,req.body,(err,updatedTrainer)=>{
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect('/trainers/'+req.params.id);
+        }
+    });
 });
 
 // DELETE

@@ -2,12 +2,6 @@ const router = require('express').Router();
 const Trainer = require('../models/trainer');
 const Pokemon = require('../models/pokemon');
 
-// INDEX
-router.get('/', async(req,res)=>{
-    let allTrainers = await Trainer.find();
-    res.render('trainers/index.ejs',{trainers: allTrainers})
-});
-
 // NEW
 router.get('/new', async (req, res) => {
   res.render('trainers/new.ejs');
@@ -42,21 +36,6 @@ router.delete('/:id',(req,res)=>{
         
     });
     
-});
-
-// UPDATE
-router.put('/:foodId/ingredients', async (req, res) => {
-  let foundFood = await Food.findByIdAndUpdate(
-    req.params.foodId,
-    {
-      $push: {
-        ingredients: req.body.ingredients,
-      },
-    },
-    { new: true, upsert: true }
-  );
-  console.log(foundFood);
-  res.redirect(`/foods/${foundFood.id}`);
 });
 
 module.exports = router;
