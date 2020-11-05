@@ -72,6 +72,7 @@ router.put('/:id/catch',async(req,res)=>{
         species: poke.data.name,
         frontImage:poke.data.sprites.front_default,
         backImage: poke.data.sprites.back_default,
+        trainerID: req.params.id,
     });
 
     await Trainer.findByIdAndUpdate(req.params.id,

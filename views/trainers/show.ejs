@@ -11,7 +11,7 @@
     <% trainer.pokemon.forEach(poke =>{ %>
         
         <li>
-            <a href="/pokemon/<%=poke.id%>"><%=poke.species%></a> level: <%=poke.level%>
+            <a href="/pokemon/<%=trainer.id%>/<%=poke.id%>"><%=poke.species%></a> level: <%=poke.level%>
         </li>
     <% }) %>
     </ul>

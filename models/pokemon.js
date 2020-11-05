@@ -14,6 +14,10 @@ const pokemonSchema = new mongoose.Schema({
         type: String,
         default: '',
     },
+    trainerID:{
+        type: String,
+        default: '',
+    }
 });
 
 module.exports = mongoose.model('Pokemon',pokemonSchema);
