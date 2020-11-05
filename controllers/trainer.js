@@ -92,6 +92,7 @@ router.put('/:id/catch',async(req,res)=>{
         });
     }
     else{
+        console.log("max pokemon");
         res.redirect('/trainers/'+req.params.id);
     }
 });

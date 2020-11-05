@@ -15,6 +15,18 @@ router.get('/:trainerID/:pokeID', async (req, res) => {
 
 });
 
+// Train
+router.put('/:id', async(req,res)=>{
+    Pokemon.findByIdAndUpdate(req.params.id,{$inc: {level:1}},(err,updatedPokemon)=>{
+        if(err){
+            res.send(err);
+        }
+        else{
+            res.redirect('/pokemon/'+updatedPokemon.trainerID+'/'+req.params.id);
+        }
+    });
+});
+
 // DELETE
 router.delete('/:trainerID/:id',(req,res)=>{
 
