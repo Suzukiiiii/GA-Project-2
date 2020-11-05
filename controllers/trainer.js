@@ -59,34 +59,41 @@ const getFromPokemonAPI = async(pokeURL)=>{
 router.put('/:id/catch',async(req,res)=>{
     console.log("create pokemon route");
 
-    // let foundTrainer = await Trainer.findById(req.params.id).populate({
-    //     path: 'pokemon',
-    //     options: { sort: { ['name']: 1 } },
-    //   });
-
-    const pokeURL = 'https://pokeapi.co/api/v2/pokemon/';
-    const randNum = 1+Math.floor(Math.random() * Math.floor(151)); // between 1 and 150
-    const poke = await getFromPokemonAPI(pokeURL+randNum);
+    const foundTrainer = await Trainer.findById(req.params.id).populate({
+        path: 'pokemon',
+        options: { sort: { ['name']: 1 } },
+      });
     
-    const newPoke = await Pokemon.create({
-        species: poke.data.name,
-        frontImage:poke.data.sprites.front_default,
-        backImage: poke.data.sprites.back_default,
-        trainerID: req.params.id,
-    });
+    const pokeLen = foundTrainer.pokemon.length;
+        
+    if(pokeLen <6){
+        const pokeURL = 'https://pokeapi.co/api/v2/pokemon/';
+        const randNum = 1+Math.floor(Math.random() * Math.floor(151)); // between 1 and 150
+        const poke = await getFromPokemonAPI(pokeURL+randNum);
+        
+        
+        const newPoke = await Pokemon.create({
+            species: poke.data.name,
+            frontImage:poke.data.sprites.front_default,
+            backImage: poke.data.sprites.back_default,
+            trainerID: req.params.id,
+        });
 
-    await Trainer.findByIdAndUpdate(req.params.id,
-    {
-        $push: {pokemon: newPoke}
-    },(err,updatedTrainer)=>{
-        if(err){
-            res.send(err);
-        }
-        else{
-            res.redirect('/trainers/'+req.params.id);
-        }
-    });
-
+        await Trainer.findByIdAndUpdate(req.params.id,
+        {
+            $push: {pokemon: newPoke}
+        },(err,updatedTrainer)=>{
+            if(err){
+                res.send(err);
+            }
+            else{
+                res.redirect('/trainers/'+req.params.id);
+            }
+        });
+    }
+    else{
+        res.redirect('/trainers/'+req.params.id);
+    }
 });
 
 // UPDATE
@@ -105,6 +112,8 @@ router.put('/:id', async (req, res) => {
 
 // DELETE
 router.delete('/:id',(req,res)=>{
+
+    Pokemon.deleteMany({trainerID: req.params.id});
 
     Trainer.findByIdAndRemove(req.params.id,(err)=>{
         if(err){
