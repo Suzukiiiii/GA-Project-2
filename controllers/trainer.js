@@ -41,7 +41,6 @@ router.get('/:id', async (req, res) => {
 
 // CREATE
 router.post('/', async (req, res) => {
-  console.log(req.body);
   let newTrainer = await Trainer.create(req.body);
   res.redirect(`/trainers/${newTrainer.id}`);
 });
@@ -57,7 +56,6 @@ const getFromPokemonAPI = async(pokeURL)=>{
 
 // CATCH POKEMON
 router.put('/:id/catch',async(req,res)=>{
-    console.log("create pokemon route");
 
     const foundTrainer = await Trainer.findById(req.params.id).populate({
         path: 'pokemon',
