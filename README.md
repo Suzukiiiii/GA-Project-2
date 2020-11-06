@@ -43,5 +43,9 @@ Mongoose
 ## Future Enhancements
 
 Add styling
-Add sessions/ ability to trade pokemon
+
+Add sessions
+
+Add ability to trade pokemon
+
 Allow two Pokemon to fight
