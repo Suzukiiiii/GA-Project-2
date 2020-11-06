@@ -1,8 +1,17 @@
 
 # GA-Project-2
-Pokemon full CRUD App
 
-https://joshua-suzuki-project2.herokuapp.com/
+## Description
+A full CRUD app that keeps track of Trainers, and the pokemon they own.
+
+## Project Links
+Repository: https://git.generalassemb.ly/prudential-0921/project-2
+
+
+## Wireframes
+![ERD](/assets/erd.png)
+
+Heroku deployment: https://joshua-suzuki-project2.herokuapp.com/
 
 ## User Stories
 - As a user, I should be able to create a new Trainer.
