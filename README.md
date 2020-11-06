@@ -24,11 +24,12 @@ A full CRUD app that keeps track of Trainers, and the pokemon they own.
 - A Trainer may not have more than 6 Pokemon.
 - Clicking on a pokemon's name should bring me to its show page.
 - I should be able to train a Pokemon and increase its level.
-- I should be able to delate a Pokemon.
+- I should be able to delete a Pokemon.
 
 ## Design Approach
 
 A Trainer has a name and an array of pokemon (max size of 6).
+
 A Pokemon has a species, links to their sprites, and a reference to the owning Trainer.
 
 They share a many to one relationship.
