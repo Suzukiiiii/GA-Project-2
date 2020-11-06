@@ -8,7 +8,9 @@ A full CRUD app that keeps track of Trainers, and the pokemon they own.
 Repository: https://git.generalassemb.ly/prudential-0921/project-2
 
 
-## Wireframes
+## Wireframes and Diagrams
+![WireFrame](assets/wf.png)
+
 ![ERD](/assets/erd.png)
 
 Heroku deployment: https://joshua-suzuki-project2.herokuapp.com/
