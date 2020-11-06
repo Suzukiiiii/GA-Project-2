@@ -6,8 +6,10 @@
     <title><%=trainer.name%></title>
 </head>
 <body>
-    
-    <h1><%=trainer.name%></h1><a href = "/trainers/<%=trainer.id %>/edit">change name</a>
+    <div id ="trainerName">
+        <h1><%=trainer.name%></h1>
+        <a href = "/trainers/<%=trainer.id %>/edit">change name</a>
+    </div>
     <ul>
     <% trainer.pokemon.forEach(poke =>{ %>
         
