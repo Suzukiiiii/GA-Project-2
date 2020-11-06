@@ -5,7 +5,7 @@
 A full CRUD app that keeps track of Trainers, and the pokemon they own.
 
 ## Project Links
-[Repository](https://git.generalassemb.ly/prudential-0921/project-2)
+[Repository](https://github.com/Suzukiiiii/GA-Project-2)
 
 [Heroku deployment](https://joshua-suzuki-project2.herokuapp.com/)
 
@@ -39,3 +39,7 @@ Node.js
 Mongoose
 
 [PokeAPI](https://pokeapi.co/)
+
+## Unsolved Problems
+
+I ran into issues trying to figure out ejs partials.
