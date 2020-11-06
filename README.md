@@ -5,15 +5,14 @@
 A full CRUD app that keeps track of Trainers, and the pokemon they own.
 
 ## Project Links
-Repository: https://git.generalassemb.ly/prudential-0921/project-2
+[Repository](https://git.generalassemb.ly/prudential-0921/project-2)
 
+[Heroku deployment](https://joshua-suzuki-project2.herokuapp.com/)
 
 ## Wireframes and Diagrams
 ![WireFrame](assets/wf.png)
 
 ![ERD](/assets/erd.png)
-
-Heroku deployment: https://joshua-suzuki-project2.herokuapp.com/
 
 ## User Stories
 - As a user, I should be able to create a new Trainer.
@@ -26,3 +25,17 @@ Heroku deployment: https://joshua-suzuki-project2.herokuapp.com/
 - Clicking on a pokemon's name should bring me to its show page.
 - I should be able to train a Pokemon and increase its level.
 - I should be able to delate a Pokemon.
+
+## Design Approach
+
+A Trainer has a name and an array of pokemon (max size of 6).
+A Pokemon has a species, links to their sprites, and a reference to the owning Trainer.
+
+They share a many to one relationship.
+
+## Technologies Used
+Node.js
+
+Mongoose
+
+[PokeAPI](https://pokeapi.co/)
