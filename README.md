@@ -40,6 +40,8 @@ Mongoose
 
 [PokeAPI](https://pokeapi.co/)
 
-## Unsolved Problems
+## Future Enhancements
 
-I ran into issues trying to figure out ejs partials.
+Add styling
+Add sessions/ ability to trade pokemon
+Allow two Pokemon to fight
